@@ -27,13 +27,12 @@ public class Gnome extends Warriors {
     }
 
 
-
     public void run() {
-        System.out.println("I can run.");
+        System.out.println("I run like an elf!");
     }
 
     public void eat() {
-        System.out.println("I can eat.");
+        System.out.println("I eat like an Gnome!");
 
     }
 

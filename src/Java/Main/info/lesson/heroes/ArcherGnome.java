@@ -9,6 +9,22 @@ public class ArcherGnome extends Gnome {
     }
 
     @Override
+    public void eat() {
+        System.out.println("I eat like an Gnome!");
+    }
+
+    @Override
+    public void run() {
+        System.out.println("I run like an elf!");
+
+    }
+
+    @Override
+    public void sayGreetings() {
+        System.out.println("Hello, I am " + this.name);
+    }
+
+    @Override
     public void getAttack() {
         System.out.println("I am attack with bow " + this.strength * this.bowStrength + " points");
     }

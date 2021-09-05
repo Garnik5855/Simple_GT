@@ -1,56 +1,52 @@
 package info.lesson.heroes;
 
 import java.io.BufferedReader;
-import java.io.IOException;
+
 import java.io.InputStreamReader;
 
 public class Solution {
 
+    private static final Warriors[] warriorsArray = new Warriors[20];
 
-    private static final Elf[] elvesArray = new Elf[10];
+    public static void main(String[] args) {
 
-    private static final Gnome[] gnomesArray = new Gnome[10];
+        Warriors elfOne = new Elf("male", 10, "elfOne", false);
+        Warriors elfTwo = new Elf("female", 5, "elfTwo", false);
 
-    public static void main(String[] args) throws IOException {
+        Warriors archerElfOne = new ArcherElf("male", 10, "archerElfOne", true, 20);
+        Warriors archerElfTwo = new ArcherElf("male", 10, "archerElfTwo", true, 25);
+        Warriors archerElfThree = new ArcherElf("male", 10, "archerElfThree", true, 28);
 
-        Elf elfOne = new Elf("male", 10, "elfOne", false);
-        Elf elfTwo = new Elf("female", 5, "elfTwo", false);
+        Warriors swordsManElfOne = new SwordsManElf("female", 10, "swordsManElfOne", true, 31);
+        Warriors swordsManElfTwo = new SwordsManElf("female", 10, "swordsManElfTwo", true, 32);
+        Warriors swordsManElfThree = new SwordsManElf("female", 10, "swordsManElfThree", true, 33);
+        Warriors swordsManElfFour = new SwordsManElf("female", 10, "swordsManElfFour", true, 34);
+        Warriors swordsManElfFive = new SwordsManElf("female", 10, "swordsManElfFive", true, 35);
 
-        Elf archerElfOne = new ArcherElf("male", 10, "archerElfOne", true, 20);
-        Elf archerElfTwo = new ArcherElf("male", 10, "archerElfTwo", true, 25);
-        Elf archerElfThree = new ArcherElf("male", 10, "archerElfThree", true, 28);
 
-        Elf swordsManElfOne = new SwordsManElf("female", 10, "swordsManElfOne", true, 31);
-        Elf swordsManElfTwo = new SwordsManElf("female", 10, "swordsManElfTwo", true, 32);
-        Elf swordsManElfThree = new SwordsManElf("female", 10, "swordsManElfThree", true, 33);
-        Elf swordsManElfFour = new SwordsManElf("female", 10, "swordsManElfFour", true, 34);
-        Elf swordsManElfFive = new SwordsManElf("female", 10, "swordsManElfFive", true, 35);
+        Warriors gnomeOne = new Gnome("male", 10, "gnomeOne", false);
+        Warriors gnomeTwo = new Gnome("female", 5, "gnomeTwo", false);
 
-        Solution solutionElf = new Solution();
-        solutionElf.setElves(elfOne, elfTwo, archerElfOne, archerElfTwo, archerElfThree, swordsManElfOne, swordsManElfTwo, swordsManElfThree, swordsManElfFour, swordsManElfFive);
+        Warriors archerGnomeOne = new ArcherGnome("male", 10, "archerGnomeOne", true, 30);
+        Warriors archerGnomeTwo = new ArcherGnome("male", 10, "archerGnomeTwo", true, 35);
+        Warriors archerGnomeThree = new ArcherGnome("male", 10, "archerGnomeThree", true, 38);
 
-        Gnome gnomeOne = new Gnome("male", 10, "gnomeOne", false);
-        Gnome gnomeTwo = new Gnome("female", 5, "gnomeTwo", false);
+        Warriors swordsManGnomeOne = new SwordsManGnome("female", 10, "swordsManGnomeOne", true, 41);
+        Warriors swordsManGnomeTwo = new SwordsManGnome("female", 10, "swordsManGnomeTwo", true, 42);
+        Warriors swordsManGnomeThree = new SwordsManGnome("female", 10, "swordsManGnomeThree", true, 43);
+        Warriors swordsManGnomeFour = new SwordsManGnome("female", 10, "swordsManGnomeFour", true, 44);
+        Warriors swordsManGnomeFive = new SwordsManGnome("female", 10, "swordsManGnomeFive", true, 45);
 
-        Gnome archerGnomeOne = new ArcherGnome("male", 10, "archerGnomeOne", true, 30);
-        Gnome archerGnomeTwo = new ArcherGnome("male", 10, "archerGnomeTwo", true, 35);
-        Gnome archerGnomeThree = new ArcherGnome("male", 10, "archerGnomeThree", true, 38);
 
-        Gnome swordsManGnomeOne = new SwordsManGnome("female", 10, "swordsManGnomeOne", true, 41);
-        Gnome swordsManGnomeTwo = new SwordsManGnome("female", 10, "swordsManGnomeTwo", true, 42);
-        Gnome swordsManGnomeThree = new SwordsManGnome("female", 10, "swordsManGnomeThree", true, 43);
-        Gnome swordsManGnomeFour = new SwordsManGnome("female", 10, "swordsManGnomeFour", true, 44);
-        Gnome swordsManGnomeFive = new SwordsManGnome("female", 10, "swordsManGnomeFive", true, 45);
-
-        Solution solutionGnome = new Solution();
-        solutionGnome.setGnomes(gnomeOne, gnomeTwo, archerGnomeOne, archerGnomeTwo, archerGnomeThree, swordsManGnomeOne, swordsManGnomeTwo, swordsManGnomeThree, swordsManGnomeFour, swordsManGnomeFive);
+        Solution solutionWarriors = new Solution();
+        solutionWarriors.setWarriors(elfOne, elfTwo, archerElfOne, archerElfTwo, archerElfThree, swordsManElfOne, swordsManElfTwo, swordsManElfThree, swordsManElfFour, swordsManElfFive, gnomeOne, gnomeTwo, archerGnomeOne, archerGnomeTwo, archerGnomeThree, swordsManGnomeOne, swordsManGnomeTwo, swordsManGnomeThree, swordsManGnomeFour, swordsManGnomeFive);
 
 
         getSelectAttackOrProtect();
 
     }
 
-    private static void getSelectAttackOrProtect() throws IOException {
+    private static void getSelectAttackOrProtect() {
 
         BufferedReader reader = new BufferedReader(new InputStreamReader(System.in));
 
@@ -81,18 +77,10 @@ public class Solution {
 
     private static void getAttackWithWarriors() {
 
-        for (Elf elfElement : elvesArray) {
+        for (Warriors warriorsElement : warriorsArray) {
 
-            elfElement.sayGreetings();
-            elfElement.getAttack();
-
-            System.out.println();
-        }
-
-        for (Gnome gnomeElement : gnomesArray) {
-
-            gnomeElement.sayGreetings();
-            gnomeElement.getAttack();
+            warriorsElement.sayGreetings();
+            warriorsElement.getAttack();
 
             System.out.println();
         }
@@ -100,33 +88,19 @@ public class Solution {
 
     private static void getProtectWithWarriors() {
 
-        for (Elf elfElement : elvesArray) {
-            elfElement.sayGreetings();
-            elfElement.getProtect();
+        for (Warriors warriorsElement : warriorsArray) {
+
+            warriorsElement.sayGreetings();
+            warriorsElement.getAttack();
 
             System.out.println();
         }
 
-        for (Gnome gnomeElement : gnomesArray) {
-
-            gnomeElement.sayGreetings();
-            gnomeElement.getProtect();
-
-            System.out.println();
-        }
     }
 
-
-    private void setElves(Elf... elves) {
-        for (int i = 0; i < elves.length; i++) {
-            elvesArray[i] = elves[i];
-        }
-
-    }
-
-    private void setGnomes(Gnome... gnomes) {
-        for (int i = 0; i < gnomes.length; i++) {
-            gnomesArray[i] = gnomes[i];
+    private void setWarriors(Warriors... warriors) {
+        for (int i = 0; i < warriors.length; i++) {
+            warriorsArray[i] = warriors[i];
         }
     }
 

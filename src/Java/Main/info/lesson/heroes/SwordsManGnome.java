@@ -1,7 +1,7 @@
 package info.lesson.heroes;
 
-public class SwordsManGnome extends Gnome {
-    private int swordStrength = 20;
+public class SwordsManGnome extends Warriors {
+    private int swordStrength;
 
     public SwordsManGnome(String gender, int strength, String name, boolean hasWeapon, int swordStrength) {
         super(gender, strength, name, hasWeapon);
@@ -18,6 +18,21 @@ public class SwordsManGnome extends Gnome {
     public void getProtect() {
         System.out.println("I am protect with sword " + super.getProtectStrength() * this.swordStrength + " points.");
 
+    }
+
+    @Override
+    public void sayGreetings() {
+        System.out.println("Hello, I am " + this.name);
+    }
+
+    @Override
+    public void eat() {
+        System.out.println("I eat like an Gnome!");
+    }
+
+    @Override
+    public void run() {
+        System.out.println("I run like an elf!");
     }
 
     @Override

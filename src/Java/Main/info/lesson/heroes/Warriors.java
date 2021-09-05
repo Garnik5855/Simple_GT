@@ -18,7 +18,15 @@ public abstract class Warriors {
     private int protectStrength = 15;
 
     public abstract void getAttack();
+
     public abstract void getProtect();
+
+    public abstract void sayGreetings();
+
+    public abstract void eat();
+
+    public abstract void run();
+
 
     public int getProtectStrength() {
         return protectStrength;
@@ -61,4 +69,5 @@ public abstract class Warriors {
         this.hasWeapon = hasWeapon;
     }
 
+    public abstract void hit();
 }

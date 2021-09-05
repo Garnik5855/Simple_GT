@@ -8,23 +8,6 @@ public class Elf extends Warriors {
     public Elf(String gender, int strength, String name, boolean hasWeapon) {
         super(gender, strength, name, hasWeapon);
     }
-//    private String gender;
-//    protected int strength;
-//    private String name;
-//    protected boolean hasWeapon;
-
-
-//    public Elf(String gender, int strength, String name, boolean hasWeapon) {
-//        this.gender = gender;
-//        this.strength = strength;
-//        this.name = name;
-//        this.hasWeapon = hasWeapon;
-//    }
-
-
-
-
-
 
     public int getHeight() {
         return height;
@@ -42,45 +25,13 @@ public class Elf extends Warriors {
         this.age = age;
     }
 
-//    public String getGender() {
-//        return gender;
-//    }
-//
-//    public void setGender(String gender) {
-//        this.gender = gender;
-//    }
-//
-//    public int getStrength() {
-//        return strength;
-//    }
-//
-//    public void setStrength(int strength) {
-//        this.strength = strength;
-//    }
-//
-//    public String getName() {
-//        return name;
-//    }
-//
-//    public void setName(String name) {
-//        this.name = name;
-//    }
-//
-//    public boolean isHasWeapon() {
-//        return hasWeapon;
-//    }
-//
-//    public void setHasWeapon(boolean hasWeapon) {
-//        this.hasWeapon = hasWeapon;
-//    }
 
     public void run() {
-
+        System.out.println("I run like an elf!");
     }
 
     public void eat() {
-
-
+        System.out.println("I eat like an elf!");
     }
 
     public void sayGreetings() {
