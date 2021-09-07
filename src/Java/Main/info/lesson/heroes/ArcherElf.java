@@ -1,7 +1,7 @@
 package info.lesson.heroes;
 
-public class ArcherElf extends Elf {
-    private int bowStrength = 10;
+public class ArcherElf extends Elf implements Warriors, Swimmable {
+    private final int bowStrength;
 
     public ArcherElf(String gender, int strength, String name, boolean hasWeapon, int bowStrength) {
         super(gender, strength, name, hasWeapon);
@@ -9,13 +9,23 @@ public class ArcherElf extends Elf {
     }
 
     @Override
+    public void swim() {
+        System.out.println("I am Elf" + this.getName() + " and I can swim like an elf!");
+    }
+
+    @Override
+    public void fly() {
+        System.out.println("I am Elf" + this.getName() + " and I can fly like an elf!");
+    }
+
+    @Override
     public void getAttack() {
-        System.out.println("I am attack with bow " + this.strength * this.bowStrength + " points");
+        System.out.println("I am Elf and I am attack with bow " + this.strength * this.bowStrength + " points");
     }
 
     @Override
     public void getProtect() {
-        System.out.println("I am protect with " + super.getProtectStrength() * this.bowStrength + " points.");
+        System.out.println("I am Elf and I am protect with " + super.getProtectStrength() * this.bowStrength + " points.");
 
     }
 
@@ -31,8 +41,8 @@ public class ArcherElf extends Elf {
 
     @Override
     public String toString() {
-        return "ArcherElf{" +
-                "bowStrength=" + bowStrength +
-                '}';
+        return "ArcherElf " + this.getName() +
+                ". I can fly and swim!";
     }
+
 }
