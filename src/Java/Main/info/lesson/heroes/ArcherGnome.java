@@ -1,7 +1,7 @@
 package info.lesson.heroes;
 
-public class ArcherGnome extends Gnome {
-    private int bowStrength = 10;
+public class ArcherGnome extends Gnome implements Warriors, Swimmable {
+    private final int bowStrength;
 
     public ArcherGnome(String gender, int strength, String name, boolean hasWeapon, int bowStrength) {
         super(gender, strength, name, hasWeapon);
@@ -9,13 +9,18 @@ public class ArcherGnome extends Gnome {
     }
 
     @Override
+    public void swim() {
+        System.out.println("I am gnome " + this.getName() + " and I can swim like an gnome!");
+    }
+
+    @Override
     public void getAttack() {
-        System.out.println("I am attack with bow " + this.strength * this.bowStrength + " points");
+        System.out.println("I am gnome and I am attack with bow " + this.strength * this.bowStrength + " points");
     }
 
     @Override
     public void getProtect() {
-        System.out.println("I am protect with bow " + super.getProtectStrength() * this.bowStrength + " points.");
+        System.out.println("I am gnome and I am protect with bow " + super.getProtectStrength() * this.bowStrength + " points.");
 
     }
 
@@ -31,8 +36,7 @@ public class ArcherGnome extends Gnome {
 
     @Override
     public String toString() {
-        return "ArcherGnome{" +
-                "bowStrength=" + bowStrength +
-                '}';
+        return "ArcherGnome " +this.getName()+
+                ". I can swim!!!";
     }
 }

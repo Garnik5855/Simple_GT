@@ -1,6 +1,6 @@
 package info.lesson.heroes;
 
-public class Gnome extends Warriors {
+public class Gnome implements Warriors, Swimmable {
 
     private int height;
     private int age;
@@ -8,6 +8,7 @@ public class Gnome extends Warriors {
     protected int strength;
     private String name;
     protected boolean hasWeapon;
+    private int protectStrength = 15;
 
 
     public Gnome(String gender, int strength, String name, boolean hasWeapon) {
@@ -66,12 +67,11 @@ public class Gnome extends Warriors {
     }
 
     public void run() {
-        System.out.println("I can run.");
+        System.out.println("I run like an gnome!");
     }
 
     public void eat() {
-        System.out.println("I can eat.");
-
+        System.out.println("I eat like an gnome!");
     }
 
     public void sayGreetings() {
@@ -83,21 +83,30 @@ public class Gnome extends Warriors {
         System.out.println("I am hit with " + this.strength + " points");
     }
 
-    @Override
+    public int getProtectStrength() {
+        return protectStrength;
+    }
+
     public void setProtectStrength(int protectStrength) {
-        super.setProtectStrength(protectStrength);
+        this.protectStrength = protectStrength;
     }
 
     @Override
     public void getAttack() {
-        System.out.println("I am attack with " + this.strength + " points.");
+        System.out.println("I am gnome and I am attack with " + this.strength + " points.");
 
     }
 
     @Override
     public void getProtect() {
-        System.out.println("I am protect with " + super.getProtectStrength() * this.strength + " points.");
+        System.out.println("I am gnome and I am protect with " + this.protectStrength * this.strength + " points.");
     }
+
+    @Override
+    public void swim() {
+        System.out.println("I am gnome" + this.name + " and I can swim!!!");
+    }
+
 
     @Override
     public String toString() {

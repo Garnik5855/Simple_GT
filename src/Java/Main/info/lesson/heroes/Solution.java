@@ -1,17 +1,15 @@
 package info.lesson.heroes;
 
-import java.io.BufferedReader;
-import java.io.IOException;
-import java.io.InputStreamReader;
+
+import java.util.ArrayList;
+import java.util.Arrays;
+import java.util.List;
 
 public class Solution {
+    private static List<Warriors> warriorsList = new ArrayList<>();
+    //private static final Warriors[] warriorsArray = new Warriors[20];
 
-
-    private static final Elf[] elvesArray = new Elf[10];
-
-    private static final Gnome[] gnomesArray = new Gnome[10];
-
-    public static void main(String[] args) throws IOException {
+    public static void main(String[] args) {
 
         Elf elfOne = new Elf("male", 10, "elfOne", false);
         Elf elfTwo = new Elf("female", 5, "elfTwo", false);
@@ -26,9 +24,6 @@ public class Solution {
         Elf swordsManElfFour = new SwordsManElf("female", 10, "swordsManElfFour", true, 34);
         Elf swordsManElfFive = new SwordsManElf("female", 10, "swordsManElfFive", true, 35);
 
-        Solution solutionElf = new Solution();
-        solutionElf.setElves(elfOne, elfTwo, archerElfOne, archerElfTwo, archerElfThree, swordsManElfOne, swordsManElfTwo, swordsManElfThree, swordsManElfFour, swordsManElfFive);
-
         Gnome gnomeOne = new Gnome("male", 10, "gnomeOne", false);
         Gnome gnomeTwo = new Gnome("female", 5, "gnomeTwo", false);
 
@@ -42,92 +37,64 @@ public class Solution {
         Gnome swordsManGnomeFour = new SwordsManGnome("female", 10, "swordsManGnomeFour", true, 44);
         Gnome swordsManGnomeFive = new SwordsManGnome("female", 10, "swordsManGnomeFive", true, 45);
 
-        Solution solutionGnome = new Solution();
-        solutionGnome.setGnomes(gnomeOne, gnomeTwo, archerGnomeOne, archerGnomeTwo, archerGnomeThree, swordsManGnomeOne, swordsManGnomeTwo, swordsManGnomeThree, swordsManGnomeFour, swordsManGnomeFive);
+        collectArmy(gnomeOne, gnomeTwo, archerGnomeOne, archerGnomeTwo, archerGnomeThree, swordsManGnomeOne, swordsManGnomeTwo,
+                swordsManGnomeThree, swordsManGnomeFour, swordsManGnomeFive, elfOne, elfTwo, archerElfOne, archerElfTwo, archerElfThree, swordsManElfOne, swordsManElfTwo, swordsManElfThree, swordsManElfFour, swordsManElfFive);
 
 
-        getSelectAttackOrProtect();
+        for (Warriors warriorElement : warriorsList) {
+            sendToAttackAndProtect(warriorElement);
+        }
 
-    }
+        List<Flyable> flyableList = new ArrayList<>();
+        List<Swimmable> swimmableList = new ArrayList<>();
+        List<Warriors> warriorsList1 = new ArrayList<>();
 
-    private static void getSelectAttackOrProtect() throws IOException {
+        for (Warriors element : warriorsList) {
+            if (element instanceof Flyable && element instanceof Swimmable) {
+                warriorsList1.add(element);
+                continue;
+            }
+            if (element instanceof Flyable) {
+                flyableList.add((Flyable) element);
+            }
+            if (element instanceof Swimmable) {
+                swimmableList.add((Swimmable) element);
+            }
+        }
+            System.out.println("Flyable and Swimable : ");
 
-        BufferedReader reader = new BufferedReader(new InputStreamReader(System.in));
+            for (Warriors warior : warriorsList1) {
 
+                System.out.println(warior);
 
-        while (true) {
+                System.out.println();
+            }
 
-            System.out.println("For attack with warriors type on the keyboard 'Attack'");
-            System.out.println("For protect with warriors type on the keyboard 'Protect'");
+            System.out.println("Flyable : ");
+            for (Flyable flyable : flyableList) {
+                flyable.fly();
 
-            try {
-                String selectedMethod = reader.readLine();
-                if (selectedMethod.equalsIgnoreCase("Attack")) {
-                    getAttackWithWarriors();
-                    break;
-                } else if (selectedMethod.equalsIgnoreCase("Protect")) {
-                    getProtectWithWarriors();
-                    break;
-                } else {
-                    System.out.println("It's wrong!!!");
-                }
+                System.out.println();
+            }
 
-            } catch (Exception e) {
-                System.out.println("It's wrong!!!");
+            System.out.println("Swimable :");
+            for (Swimmable swimmable : swimmableList) {
+                swimmable.swim();
+
+                System.out.println();
             }
         }
 
+
+    private static void collectArmy(Warriors... warriors) {
+        warriorsList = Arrays.asList(warriors);
     }
 
-    private static void getAttackWithWarriors() {
+    private static void sendToAttackAndProtect(Warriors warriors) {
 
-        for (Elf elfElement : elvesArray) {
+        warriors.getAttack();
+        warriors.getProtect();
 
-            elfElement.sayGreetings();
-            elfElement.getAttack();
-
-            System.out.println();
-        }
-
-        for (Gnome gnomeElement : gnomesArray) {
-
-            gnomeElement.sayGreetings();
-            gnomeElement.getAttack();
-
-            System.out.println();
-        }
+        System.out.println();
     }
-
-    private static void getProtectWithWarriors() {
-
-        for (Elf elfElement : elvesArray) {
-            elfElement.sayGreetings();
-            elfElement.getProtect();
-
-            System.out.println();
-        }
-
-        for (Gnome gnomeElement : gnomesArray) {
-
-            gnomeElement.sayGreetings();
-            gnomeElement.getProtect();
-
-            System.out.println();
-        }
-    }
-
-
-    private void setElves(Elf... elves) {
-        for (int i = 0; i < elves.length; i++) {
-            elvesArray[i] = elves[i];
-        }
-
-    }
-
-    private void setGnomes(Gnome... gnomes) {
-        for (int i = 0; i < gnomes.length; i++) {
-            gnomesArray[i] = gnomes[i];
-        }
-    }
-
 }

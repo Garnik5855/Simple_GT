@@ -1,22 +1,27 @@
 package info.lesson.heroes;
 
-public class SwordsManGnome extends Gnome {
-    private int swordStrength = 20;
+public class SwordsManGnome extends Gnome implements Warriors {
+    private final int swordStrength;
 
     public SwordsManGnome(String gender, int strength, String name, boolean hasWeapon, int swordStrength) {
         super(gender, strength, name, hasWeapon);
         this.swordStrength = swordStrength;
     }
 
+    @Override
+    public void swim() {
+        System.out.println("I am gnome" + this.getName() + " and I swim like an gnome!");
+    }
+
 
     @Override
     public void getAttack() {
-        System.out.println("I am attack with sword " + this.strength * this.swordStrength + " points");
+        System.out.println("I am gnome and I am attack with sword " + this.strength * this.swordStrength + " points");
     }
 
     @Override
     public void getProtect() {
-        System.out.println("I am protect with sword " + super.getProtectStrength() * this.swordStrength + " points.");
+        System.out.println("I am gnome and I am protect with sword " + super.getProtectStrength() * this.swordStrength + " points.");
 
     }
 
@@ -33,8 +38,7 @@ public class SwordsManGnome extends Gnome {
 
     @Override
     public String toString() {
-        return "SwordsManGnome{" +
-                "swordStrength=" + swordStrength +
-                '}';
+        return "SwordsManGnome " + this.getName() +
+                ". I can swim!";
     }
 }
